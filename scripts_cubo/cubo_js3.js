@@ -50,7 +50,7 @@ var createLight = function() {
 
 // cria um plano e adiciona à cena
 var createPlane = function() {
-	// cria um modelo geométrico de eplano, passando as dimensões do plano
+	// cria um modelo geométrico de plano, passando as dimensões do plano
 	var planeGeometry = new THREE.PlaneGeometry(20, 20);
 	// cria um material próprio para usar com SpotLight
 	var planeMaterial = new THREE.MeshLambertMaterial( { color: 0xcccccc} );

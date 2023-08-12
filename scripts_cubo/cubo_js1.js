@@ -4,12 +4,9 @@ var camera;
 var renderer;
 var cube;
 
-// renderização da cena
+// renderização da cena (roda em loop, 60 frames por segundo)
 var render = function() {
 	requestAnimationFrame( render );
-
-	//executa a animação do cubo
-	this.animateCube();
 
 	renderer.render( scene, camera );
 };
@@ -20,18 +17,11 @@ var createACube = function() {
 	var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 	// cria um tipo de material com cor verde
 	var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-	// cria um objeto unindo o modelo geométrico com o material 
+	// cria um objeto unindo o modelo geométrico com o material. Cria uma malha
 	cube = new THREE.Mesh( geometry, material );
 	//adiciona o cubo a cena (é adicionado na origem)
 	scene.add( cube );
 };
-
-// cria a animação do cubo
-var animateCube = function() {
-	//rotaciona o objeto no eixo x e y
-	cube.rotation.x += 0.01;
-	cube.rotation.y += 0.01;
-}
 
 // inicializa os objetos e renderiza a cena
 var init = function() {
