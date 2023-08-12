@@ -16,6 +16,8 @@ O valor de `src` é quem define o script que será executado ao visualizar o htm
 
 ### cubo\_js1.js
 
+![cubo_01](imagens/cubo_01.jpg)
+
 cria uma cena simples, com apenas um cubo no centro da tela. A cena não possui animação, o que faz com que o cubo apareça apenas como um quadrado. Com esse script aprendemos a:
 
 - criar uma cena;
@@ -26,12 +28,16 @@ cria uma cena simples, com apenas um cubo no centro da tela. A cena não possui 
 
 ### cubo\_js1\_2.js
 
+![cubo_01_2](imagens/cubo_01_2.gif)
+
 Adicona uma animação ao cubo. Com esse script aprendemos a:
 
 - animar um objeto na cena;
 - rotacionar um objeto.
 
 ### cubo\_js2.js
+
+![cubo_02](imagens/cubo_02.gif)
 
 Movimenta o cubo para longe da câmera. Com esse script aprendemos a:
 
@@ -42,6 +48,8 @@ Movimenta o cubo para longe da câmera. Com esse script aprendemos a:
 - usar o método *position.set()*.
 
 ### cubo\_js2\_2.js
+
+![cubo_02_2](imagens/cubo_02_2.gif)
 
 Movimenta o cubo para longe da câmera, usando dessa vez a _OrthographicCamera_. O cubo demora alguns segundos para entrar em cena, e segundos depois ele some. Com esse script aprendemos a:
 
@@ -54,6 +62,8 @@ Movimenta o cubo para longe da câmera, usando dessa vez a _OrthographicCamera_.
 
 ### cubo\_js3.js
 
+![cubo_03](imagens/cubo_03.gif)
+
 Acrescenta luz e sombra à cena. Com esse script aprendemos a:
 
 - criar uma fonte de luz usando *SpotLight*;
@@ -63,24 +73,3 @@ Acrescenta luz e sombra à cena. Com esse script aprendemos a:
 - fazer com que objetos recebam sombra;
 - criar planos;
 - reposicionar a câmera e apontá-la para a cena.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
