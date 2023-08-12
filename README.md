@@ -16,7 +16,7 @@ O valor de `src` é quem define o script que será executado ao visualizar o htm
 
 ### cubo\_js1.js
 
-![cubo_01](imagens/cubo_01.jpg)
+![cubo_01](imagens/cubo_01.gif)
 
 cria uma cena simples, com apenas um cubo no centro da tela. A cena não possui animação, o que faz com que o cubo apareça apenas como um quadrado. Com esse script aprendemos a:
 
