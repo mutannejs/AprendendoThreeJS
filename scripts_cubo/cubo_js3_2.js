@@ -74,7 +74,6 @@ var createCamera = function() {
 		0.1,
 		1000
 	);
-	cameraL.position.multiplyScalar( 2 );
 	// posiciona a subcâmera na tela
 	cameraL.viewport = new THREE.Vector4(0, 0, window.innerWidth*0.5, window.innerHeight);
 
@@ -85,7 +84,6 @@ var createCamera = function() {
 		0.1,
 		1000
 	);
-	cameraR.position.multiplyScalar( 2 );
 	// posiciona a subcâmera na tela
 	cameraR.viewport = new THREE.Vector4(window.innerWidth*0.5, 0, window.innerWidth*0.5, window.innerHeight);
 
@@ -97,7 +95,7 @@ var createCamera = function() {
 	cameraL.position.y = 1;
 	cameraL.position.z = 3;
 	cameraL.lookAt(scene.position);
-	cameraL.updateMatrixWorld();
+	cameraL.updateMatrixWorld();// usado para atualizar a matriz de projeção da câmera
 	cameraR.position.x = -2;
 	cameraR.position.y = 1;
 	cameraR.position.z = 3;
