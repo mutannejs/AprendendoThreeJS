@@ -3,15 +3,25 @@ var camera;
 var renderer;
 var base;
 var base2;
+var fase;
+var abrir;
 
 var render = function() {
 	requestAnimationFrame( render );
 
-	if (camera.position.x < 0.6) {
-		this.animateBase();
-		this.animateBase2();
-		camera.position.x += 0.01;
+	if (fase >= 30) {
+		if (abrir == 1) {
+			abrir = 0;
+		} else {
+			abrir = 1;
+		}
+		fase = 0;
+	} else {
+		fase++;
 	}
+	this.animateBase();
+	this.animateBase2();
+	//camera.position.x += 0.01;
 
 	renderer.render( scene, camera );
 };
@@ -37,13 +47,21 @@ var createASecondBase = function() {
 
 // cria a animação da base
 var animateBase = function() {
-	base.rotation.y -= 0.01;// rotaciona em torno de y
-	base.position.x += 0.01;// anda para frente
+	if (abrir == 1) {
+		base.rotation.y -= 0.02;// rotaciona em torno de y
+	} else {
+		base.rotation.y += 0.02;
+	}
+	//base.position.x += 0.01;// anda para frente
 }
 
 var animateBase2 = function() {
-	base2.rotation.y -= 0.01;
-	base2.position.x += 0.01;
+	if (abrir == 1) {
+		base2.rotation.y -= 0.02;
+	} else {
+		base2.rotation.y += 0.02;
+	}
+	//base2.position.x += 0.01;
 }
 
 var init = function() {
@@ -55,7 +73,7 @@ var init = function() {
 		window.innerWidth/512,
 		window.innerHeight/512,
 		-window.innerHeight/512,
-		1,
+		0,
 		100
 	);
 
@@ -63,8 +81,11 @@ var init = function() {
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	document.body.appendChild( renderer.domElement );
 
-	camera.position.z = 5;
+	camera.position.z = 1;
+	camera.lookAt(scene.position);
 
+	fase = -1;
+	abrir = 1;
 	this.createABase();
 	this.createASecondBase();
 
