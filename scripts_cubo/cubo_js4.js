@@ -9,7 +9,6 @@ var render = function() {
 
 	this.animateCube();
 
-	//adiciona renderização de sombras
 	renderer.shadowMap.enabled = true;
 	renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
@@ -18,89 +17,101 @@ var render = function() {
 
 var createACube = function() {
 	var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-	// cria um material próprio para usar com SpotLight
 	var material = new THREE.MeshLambertMaterial( {color: 0x00ff00} );
 
 	cube = new THREE.Mesh( geometry, material );
 
 	cube.position.set(0, 0, 0);
 
-	// adiciona a propriedade de gerar sombra ao cubo
 	cube.castShadow = true;
 
 	scene.add( cube );
 };
 
 var animateCube = function() {
-	cube.rotation.y += 0.01;
+	cube.rotation.x += 0.01;
 }
 
-// cria uma fonte de luz e adiciona à cena
 var createLight = function() {
-	// argumentos: cor da luz, intensidade
 	var spotLight = new THREE.SpotLight(0xffffff, 50);
-	// seta uma nova posição para a fonte de luz
-	spotLight.position.set(10, 10, 5);
-	// adiciona a propriedade de gerar sombra ao cubo
+	spotLight.position.set(5, 5, 5);
 	spotLight.castShadow = true;
 
 	scene.add(spotLight);
 };
 
-// cria um plano e adiciona à cena
 var createPlane = function() {
-	// cria um modelo geométrico de plano, passando as dimensões do plano
 	var planeGeometry = new THREE.PlaneGeometry(20, 20);
-	// cria um material próprio para usar com SpotLight
 	var planeMaterial = new THREE.MeshLambertMaterial( { color: 0xcccccc} );
 	plane = new THREE.Mesh(planeGeometry, planeMaterial);
 
-	// rotaciona o plano em 90º. Por padrão ele está na vertical
 	plane.rotation.x = -0.5 * Math.PI;
-	// posiciona o plano a baixo do cubo
-	plane.position.y = -2;
+	plane.position.y = -1;
 
-	//adiciona a propriedade de receber sombra ao cubo 
 	plane.receiveShadow = true;
 
 	scene.add(plane);
 };
 
-// cria outro plano, para ficar como fundo da cena
 var createSecondPlane = function() {
 	var planeGeometry = new THREE.PlaneGeometry(20, 20);
 	var planeMaterial = new THREE.MeshLambertMaterial( { color: 0xcccccc} );
 	plane = new THREE.Mesh(planeGeometry, planeMaterial);
 
-	// posiciona o plano átras do cubo
-	plane.position.z = -2;
+	plane.position.z = -1;
 
 	plane.receiveShadow = true;
 
 	scene.add(plane);
+};
+
+// cria as duas câmeras e posicionas elas
+var createCamera = function() {
+	// cria a subcâmera da esquerda
+	var cameraL = new THREE.PerspectiveCamera(
+		50,
+		(window.innerWidth * 0.5) / window.innerHeight,
+		0.1,
+		1000
+	);
+	cameraL.position.multiplyScalar( 2 );
+	// posiciona a subcâmera na tela
+	cameraL.viewport = new THREE.Vector4(0, 0, window.innerWidth*0.5, window.innerHeight);
+
+	// cria a subcâmera da direita
+	var cameraR = new THREE.PerspectiveCamera(
+		50,
+		(window.innerWidth * 0.5) / window.innerHeight,
+		0.1,
+		1000
+	);
+	cameraR.position.multiplyScalar( 2 );
+	// posiciona a subcâmera na tela
+	cameraR.viewport = new THREE.Vector4(window.innerWidth*0.5, 0, window.innerWidth*0.5, window.innerHeight);
+
+	// adiciona as duas câmeras a uma ArrayCamera (para amabas serem renderizadas)
+	camera = new THREE.ArrayCamera( [cameraL, cameraR]);
+
+	// reposiciona ambas as câmeras
+	cameraL.position.x = 2;
+	cameraL.position.y = 1;
+	cameraL.position.z = 3;
+	cameraL.lookAt(scene.position);
+	cameraL.updateMatrixWorld();
+	cameraR.position.x = -2;
+	cameraR.position.y = 1;
+	cameraR.position.z = 3;
+	cameraR.lookAt(scene.position);
+	cameraR.updateMatrixWorld();
 };
 
 var init = function() {
 
 	scene = new THREE.Scene();
 
-	camera = new THREE.PerspectiveCamera(
-		75,
-		window.innerWidth / window.innerHeight,
-		0.1,
-		1000
-	);
-
-	// cria o renderizador
 	renderer = new THREE.WebGLRenderer();
-	renderer.setSize( window.innerWidth, window.innerHeight );// define o tamanho da tela
-	document.body.appendChild( renderer.domElement );// linka o código do renderizador no corpo do documento
-
-	// reposiciona a câmera
-	camera.position.y = 1;
-	camera.position.z = 3;
-	// rotaciona a câmera para que ela "aponte" para a cena
-	camera.lookAt( scene.position);
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	document.body.appendChild( renderer.domElement );
 
 	this.createACube();
 
@@ -109,6 +120,8 @@ var init = function() {
 	this.createSecondPlane();
 
 	this.createLight();
+
+	this.createCamera();
 
 	this.render();
 
