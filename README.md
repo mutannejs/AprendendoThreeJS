@@ -81,5 +81,5 @@ Acrescenta luz e sombra à cena. Com esse script aprendemos a:
 Mostra a cena a partir de duas câmeras, dividindo a tela entre elas. Na câmera da esquerda, vemos a cena do mesmo lado onde está a fonte da luz, o oposto do que acontece na câmera da direita. Essa diferença pode ser percebida pela sombra nos planos, mais perceptível na câmera da direita. Com esse script aprendemos a:
 
 - usar duas câmeras simultaneamente com *ArrayCamera*;
-- usar o método *Vector4*, para criar um vetor de 4 elementos, nesse caso necessário para posicionar a vista das câmeras na tela
-- atualizar a matriz de projeção da câmera, necessário após alterar algum de seus parâmetros
+- usar o método *Vector4*, para criar um vetor de 4 elementos, nesse caso necessário para posicionar a vista das câmeras na tela;
+- atualizar a matriz de projeção da câmera, necessário após alterar algum de seus parâmetros.
