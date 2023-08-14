@@ -83,3 +83,46 @@ Mostra a cena a partir de duas câmeras, dividindo a tela entre elas. Na câmera
 - usar duas câmeras simultaneamente com *ArrayCamera*;
 - usar o método *Vector4*, para criar um vetor de 4 elementos, nesse caso necessário para posicionar a vista das câmeras na tela;
 - atualizar a matriz de projeção da câmera, necessário após alterar algum de seus parâmetros.
+
+## Scripts Pacman
+
+Nesse seção temos o início da modelagem do personagem Pacman, usando em geral os conceitos aprendidos até aqui. O objetivo é estudar a viabilidade de construir uma animação com o personagem.
+
+### pacman\_js1.js
+
+![pacman_01](imagens/pacman_01.gif)
+
+Vemos a partir de uma *OrthographicCamera*, o pacman abrindo a boca, a animação então pausa. Com esse script aprendemos a:
+
+- modelar a metade de uma esfera;
+- usar comandos de decisão na animação.
+
+### pacman\_js2.js
+
+![pacman_02](imagens/pacman_02.gif)
+
+Ainda usando a *OrthographicCamera*, agora vemos o pacman fechando e abrindo a boca. É uma evolução na lógica do script *pacman_js1.js*.
+
+### pacman\_js3.js
+
+![pacman_03](imagens/pacman_03.gif)
+
+Temos a mesma cena do script anterior, mas com aplicação de luzes e preenchimento da boca do pacman (um disco no lugar da abertura de cada esfera). Com esse script aprendemos a:
+
+- criar uma circunferência;
+- usar luz direcional;
+- usar luz ambiente.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

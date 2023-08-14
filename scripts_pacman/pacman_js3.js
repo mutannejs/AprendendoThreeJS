@@ -100,7 +100,7 @@ var createDirectionalLight = function() {
 };
 
 var createAmbientLight = function() {
-	var ambientLight = new THREE.AmbientLight(0x222222);
+	var ambientLight = new THREE.AmbientLight(0x888888);
 	ambientLight.name='ambient';
 	ambientLight.castShadow = true;
 	scene.add(ambientLight);
@@ -150,7 +150,7 @@ var init = function() {
 	this.createASecondBase();
 	this.createPlane();
 	this.createDirectionalLight();
-	//this.createAmbientLight();
+	this.createAmbientLight();
 
 	this.render();
 
