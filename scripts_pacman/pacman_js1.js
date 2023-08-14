@@ -7,7 +7,7 @@ var base2;
 var render = function() {
 	requestAnimationFrame( render );
 
-	if (camera.position.x < 0.6) {
+	if (camera.position.x < 0.78) {
 		this.animateBase();
 		this.animateBase2();
 		camera.position.x += 0.01;

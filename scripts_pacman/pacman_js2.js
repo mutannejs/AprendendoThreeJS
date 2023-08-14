@@ -9,7 +9,7 @@ var abrir;
 var render = function() {
 	requestAnimationFrame( render );
 
-	if (fase >= 30) {
+	if (fase >= 39) {
 		if (abrir == 1) {
 			abrir = 0;
 		} else {

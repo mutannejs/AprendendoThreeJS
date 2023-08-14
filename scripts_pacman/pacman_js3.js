@@ -12,7 +12,7 @@ var render = function() {
 	requestAnimationFrame( render );
 
 	// muda de abrir para fechar a boca de 30 em 30 (abre 45º)
-	if (fase >= 30) {
+	if (fase >= 39) {
 		if (abrir == 1) {
 			abrir = 0;
 		} else {
